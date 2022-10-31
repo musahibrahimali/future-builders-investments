@@ -1,41 +1,24 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { IsBoolean, IsString } from "class-validator";
-import {Role} from "../../common/common";
+import { IsString } from "class-validator";
 
 export type UserModel = User & Document;
 
 @Schema({timestamps: true })
 export class User{
     @IsString()
-    @Prop({required: false, default: '' })
-    socialId: string;
-
-    @IsString()
-    @Prop({ required: true, unique: true })
+    @Prop({ required: true, unique: false })
     username: string;
 
-    @Prop({ required: false, })
+    @Prop({ required: true, })
     password: string;
 
     @IsString()
-    @Prop({required: false})
-    displayName: string;
-
-    @IsString()
-    @Prop({ required: false })
-    firstName: string;
-
-    @IsString()
-    @Prop({ required: false })
-    fullName: string;
-
-    @IsString()
-    @Prop({required: false})
-    lastName: string;
-
-    @IsString()
-    @Prop({required: false, unique: true})
+    @Prop({required: true, unique: true})
     email: string;
+
+    @IsString()
+    @Prop({required: false, unique: false})
+    refferalCode: string;
 
     @IsString()
     @Prop({required: false})
@@ -46,16 +29,24 @@ export class User{
     @Prop({required: false})
     passwordResetKey: string;
 
-    @Prop({required: false, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'})
-    image: string;
+    @IsString()
+    @Prop({required: false, default: "0"})
+    balance: string;
 
     @IsString()
-    @Prop({required: false, default: ["user"]})
-    roles: Role[];
+    @Prop({required: false, default: "0"})
+    referrals: string;
 
-    @IsBoolean()
-    @Prop({required: false, default: false })
-    isAdmin: boolean;
+    @IsString()
+    @Prop({required: false, default: "0"})
+    deposits: string;
+
+    @IsString()
+    @Prop({required: false, default: "0"})
+    withdrawals: string;
+
+    @Prop({required: false, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'})
+    image: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

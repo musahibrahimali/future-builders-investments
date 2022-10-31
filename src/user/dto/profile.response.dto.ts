@@ -1,12 +1,13 @@
 export class ProfileInfoDto {
-    socialId: string;
-    userId: any;
-    email: string;
-    displayName: string;
-    fullName: string;
-    firstName: string;
-    lastName: string;
-    image : string;
-    isAdmin: boolean;
-    roles: string[];
+    username: string;
+    password?: string;
+    email?: string;
+    refferalCode?: string;
+    image?: string;
+    balance?: string;
+    referrals?: string;
+    deposits?: string;
+    withdrawals?: string;
+    passwordResetKey?: string;
+    salt?: string;
 }

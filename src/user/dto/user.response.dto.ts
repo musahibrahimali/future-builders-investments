@@ -1,12 +1,16 @@
 export class UserResponseDto{
     userId: string;
-    email: string;
-    userName: string;
-    fullName: string;
-    firstName: string;
-    lastName: string;
-    displayName: string;
-    image: string;
+    username: string;
+    password?: string;
+    email?: string;
+    refferalCode?: string;
+    image?: string;
+    balance?: string;
+    referrals?: string;
+    deposits?: string;
+    withdrawals?: string;
+    passwordResetKey?: string;
+    salt?: string;
     createdAt: Date;
     updatedAt: Date;
 }
