@@ -50,11 +50,7 @@ async function bootstrap() {
       crossOriginEmbedderPolicy: false,
     }),
   );
-  /*
-  * ########################################################
-  * ######## PREVENT XSS ATTACKS AND SQL INJECTION #########
-  * ########################################################
-  * */
+
   // app.use(
   //   csurf({
   //     cookie: {
